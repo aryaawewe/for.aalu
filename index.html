@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I'm Sorry Aalu ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    text-align: center;
+}
+
+/* Floating Hearts */
+.heart {
+    position: absolute;
+    bottom: -10px;
+    color: rgba(255,255,255,0.7);
+    animation: floatUp 10s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+}
+
+/* Card */
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    animation: fadeIn 2s ease-in-out;
+    z-index: 10;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.6em;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    background-color: white;
+    color: #ff4f81;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #ffe6ee;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hidden-message {
+    display: none;
+    margin-top: 20px;
+    font-weight: bold;
+    animation: fadeIn 1.5s ease-in-out;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio id="bgMusic" autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5f8d7f7b8a.mp3?filename=romantic-piano-110624.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+    <h1>I'm Sorry, Aalu ❤️</h1>
+
+    <p>
+        I know Valentine’s Day wasn’t planned the way you wanted,
+        and that’s on me. You deserved something magical,
+        thoughtful, and perfectly planned.
+    </p>
+
+    <p>
+        I’m truly sorry for disappointing you.
+        You mean more to me than any single day ever could.
+    </p>
+
+    <button onclick="showMessage()">Click For My Heart 💌</button>
+    <button onclick="playMusic()">Play Music 🎵</button>
+
+    <div class="hidden-message" id="extraMessage">
+        Aalu, I promise to make it up to you.
+        Not just with one perfect Valentine’s,
+        but with a lifetime of beautiful moments.
+        I love you endlessly. ❤️
+
+        its okayy merii pyaari siii jaan you mean the world to me
+        i am sorry too cutieee
+        muaaaaaaaaaaaaaaaaaaaaaa
+    </div>
+</div>
+
+<script>
+function showMessage() {
+    document.getElementById("extraMessage").style.display = "block";
+}
+
+function playMusic() {
+    document.getElementById("bgMusic").play();
+}
+
+/* Generate Floating Hearts */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    heart.style.animationDuration = Math.random() * 5 + 5 + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 10000);
+}
+
+setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
